@@ -6,7 +6,12 @@ const rowData = [];
 const cloumnDefs = [];
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      {/* Grid行にデータと列定義のプロパティに設定する */}
+      <AgGridReact rowData={rowData} cloumnDefs={cloumnDefs} />
+    </div>
+  );
 }
 
 export default App;
