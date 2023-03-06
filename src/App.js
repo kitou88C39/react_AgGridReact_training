@@ -19,7 +19,7 @@ function App() {
     { field: 'model' },
     { field: 'price' },
   ]);
-  const defaultColDefs = useState(
+  const defaultColDef = useState(
     () => ({
       sortable: true,
       filter: true,
@@ -29,7 +29,7 @@ function App() {
 
   useEffect(() => {
     fetch(
-      'https://www.ag-grid.com/example-assets/row-data.json'
+      'https://www.ag-grid.com/example-assets/row-data.js'
         .then((result) => result.json())
         .then((rowData) => setRowData(rowData)),
       []
@@ -40,7 +40,13 @@ function App() {
     // divタグでcssのクラスとテーマを設定する
     <div className='ag-theme-alpine' style={{ height: 500 }}>
       {/* Grid行にデータと列定義のプロパティに設定する */}
-      <AgGridReact rowData={rowData} columnDefs={columnDefs} />
+      <AgGridReact
+        rowData={rowData}
+        columnDefs={columnDefs}
+        rowSelection='multiple'
+        animateRows={true}
+        defaultColDef={defaultColDef}
+      />
     </div>
   );
 }
