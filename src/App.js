@@ -15,10 +15,17 @@ function App() {
   ]);
 
   const [columnDefs, serColumnDefs] = useState([
-    { field: 'make', sortable: true, filter: true },
-    { field: 'model', sortable: true, filter: true },
-    { field: 'price', sortable: true, filter: true },
+    { field: 'make' },
+    { field: 'model' },
+    { field: 'price' },
   ]);
+  const defaultColDefs = useState(
+    () => ({
+      sortable: true,
+      filter: true,
+    }),
+    []
+  );
 
   useEffect(() => {
     fetch(
